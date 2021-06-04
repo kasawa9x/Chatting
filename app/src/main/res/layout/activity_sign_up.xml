@@ -23,7 +23,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/whatsappicon" />
+            app:srcCompat="@drawable/ic_whatsapp_icon" />
 
         <EditText
             android:id="@+id/edt_UserName"
@@ -31,9 +31,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:ems="10"
-            android:textColorHint="#802C2929"
-            android:textColor="@color/black"
-            android:hint="Username"
+            android:hint="Tên người dùng"
             android:inputType="textPersonName"
             android:padding="9dp"
             android:layout_marginTop="15dp"/>
@@ -44,11 +42,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:textColor="@color/black"
             android:background="@color/white"
-            android:textColorHint="#802C2929"
             android:ems="10"
-            android:hint="Email"
+            android:hint="Tên đăng nhập"
             android:inputType="textEmailAddress"
             android:padding="9dp" />
 
@@ -56,12 +52,10 @@
             android:id="@+id/edt_Pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
             android:layout_marginBottom="10dp"
-            android:textColorHint="#802C2929"
             android:background="@color/white"
             android:ems="10"
-            android:hint="Password"
+            android:hint="Mật khẩu"
             android:inputType="textPassword"
             android:padding="9dp" />
 
@@ -72,10 +66,9 @@
             android:layout_gravity="right"
             android:gravity="right"
             android:padding="3dp"
-            android:text="Create Account " />
+            android:text="Quay về màn hình đăng nhập" />
 
         <Button
-
             android:id="@+id/btn_SignUp"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
@@ -84,54 +77,12 @@
             android:layout_marginLeft="10dp"
             android:gravity="center"
             android:padding="15dp"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/colorPrimary"
-            android:text="Sign Up"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:text="Đăng ký"
             app:cornerRadius="4dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_Google"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_google"
-                android:padding="15dp"
-                android:text="Google"
-                android:textColor="@color/black"
-                app:backgroundTint="@color/white"
-                app:cornerRadius="4dp" />
 
-            <Button
-                android:id="@+id/btn_FaceBook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
-                android:layout_weight="1"
-                android:drawableLeft="@drawable/ic_facebook"
-                android:padding="15dp"
-                android:text="FaceBook"
-                app:backgroundTint="@color/fb_color"
-                app:cornerRadius="4dp" />
 
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_SignWPhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Sign Up With Phone"
-            android:textColor="@color/colorPrimary"
-            android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "254657383385",
+    "firebase_url": "https://chattingbys-default-rtdb.firebaseio.com",
+    "project_id": "chattingbys",
+    "storage_bucket": "chattingbys.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:254657383385:android:28217eb78521dcee32e7c8",
+        "android_client_info": {
+          "package_name": "com.nguyenhongson.chattingbys"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "254657383385-js7253r0muvjkv0oqhcd0j6arci1hell.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjolRUDk8sYVRQVlNt9G3gD_n745bNyJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "254657383385-js7253r0muvjkv0oqhcd0j6arci1hell.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

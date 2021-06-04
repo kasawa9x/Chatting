@@ -17,12 +17,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
+import com.nguyenhongson.chattingbys.Model.Users;
 import com.nguyenhongson.chattingbys.databinding.ActivitySignInBinding;
 
 public class SignInActivity extends AppCompatActivity {
@@ -30,6 +32,7 @@ public class SignInActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     FirebaseAuth auth;
     GoogleSignInClient mGoogleSignInClient;
+    FirebaseDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,7 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
         progressDialog = new ProgressDialog(SignInActivity.this);
         progressDialog.setTitle("Login");
         progressDialog.setMessage(" Login to your account");
@@ -52,6 +56,16 @@ public class SignInActivity extends AppCompatActivity {
         binding.btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (binding.edtEmail.getText().toString().isEmpty()){
+                    binding.edtEmail.setError("Enter your E-mail");
+                    return;
+                }
+                if (binding.edtPass.getText().toString().isEmpty()){
+                    binding.edtPass.setError("Enter your PassWord");
+                    return;
+                }
+
+
                 progressDialog.show();
                 auth.signInWithEmailAndPassword(
                         binding.edtEmail.getText().toString(),
@@ -79,13 +93,7 @@ public class SignInActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        binding.btnGoogle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signIn();
 
-            }
-        });
         if (auth.getCurrentUser()!= null){
             Intent intent = new Intent(SignInActivity.this,MainActivity.class);
             startActivity(intent);
@@ -126,11 +134,24 @@ public class SignInActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("TAG", "signInWithCredential:success");
                             FirebaseUser user = auth.getCurrentUser();
+
+                            Users users = new Users();
+                            users.setUserId(user.getUid());
+                            users.setUserName(user.getDisplayName());
+                            users.setProfileepic(user.getPhotoUrl().toString());
+                            database.getReference().child("Users").child(user.getUid()).setValue(users);
+
+                            Intent intent = new Intent(SignInActivity.this,MainActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(SignInActivity.this,"Sign in with Google",Toast.LENGTH_SHORT).show();
 //                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithCredential:failure", task.getException());
+                            Toast.makeText(SignInActivity.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            Snackbar.make(binding.getRoot(),"Authenticcation Failed",Snackbar.LENGTH_SHORT);
 //                            updateUI(null);
+
                         }
                     }
                 });

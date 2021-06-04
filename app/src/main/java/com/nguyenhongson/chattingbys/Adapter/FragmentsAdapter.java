@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.nguyenhongson.chattingbys.Fragments.CallsFragment;
+
 import com.nguyenhongson.chattingbys.Fragments.ChatFragment;
-import com.nguyenhongson.chattingbys.Fragments.StatusFragment;
+import com.nguyenhongson.chattingbys.Fragments.GroupChatFragment;
 
 public class FragmentsAdapter extends FragmentPagerAdapter {
     public FragmentsAdapter(@NonNull FragmentManager fm) {
@@ -25,8 +25,8 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0 : return new ChatFragment();
-            case 1 : return new StatusFragment();
-            case 2 : return new CallsFragment();
+            case 1 : return new GroupChatFragment();
+
             default: return  new ChatFragment();
 
 
@@ -48,10 +48,10 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
             title = "CHATS";
         }
         if (position == 1){
-            title = "STATUS";
+            title = "Group chat";
         }
         if (position == 2){
-            title = "Calls";
+            title = "Profile";
         }
         return title;
     }

@@ -1,21 +1,20 @@
 package com.nguyenhongson.chattingbys;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
 import com.google.firebase.database.FirebaseDatabase;
-import com.nguyenhongson.chattingbys.Model.User;
+import com.nguyenhongson.chattingbys.Model.Users;
 import com.nguyenhongson.chattingbys.databinding.ActivitySignUpBinding;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -29,9 +28,9 @@ public class SignUpActivity extends AppCompatActivity {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
 
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         progressDialog = new ProgressDialog(SignUpActivity.this);
@@ -48,12 +47,12 @@ public class SignUpActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                progressDialog.dismiss();
                                 if (task.isSuccessful()){
-                                    User user = new User(binding.edtUserName.getText().toString()
+                                    Users users = new Users(binding.edtUserName.getText().toString()
                                             ,binding.edtEmail.getText().toString()
                                             ,binding.edtPass.getText().toString());
 
                                     String id  = task.getResult().getUser().getUid();
-                                    database.getReference().child("User").child(id).setValue(user);
+                                    database.getReference().child("Users").child(id).setValue(users);
                                     Toast.makeText(SignUpActivity.this,
                                             "User Created Sucessfully",
                                             Toast.LENGTH_SHORT).show();
