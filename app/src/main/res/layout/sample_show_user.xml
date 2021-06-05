@@ -6,10 +6,15 @@
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:layout_height="wrap_content"
+
+
     android:layout_margin="5dp">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:backgroundTint="#DAE0E3"
+
+       >
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -37,15 +42,18 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold"
             android:text="Nguyễn Hồng Sơn"
             android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/lastMess"
+            android:textColor="@color/chatbackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="LastMess" />
+             />
     </LinearLayout>
 
 </LinearLayout>

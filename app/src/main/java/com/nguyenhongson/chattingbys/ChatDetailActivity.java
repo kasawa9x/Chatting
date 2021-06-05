@@ -16,6 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nguyenhongson.chattingbys.Adapter.ChatAdapter;
 import com.nguyenhongson.chattingbys.Model.Message;
+
+
 import com.nguyenhongson.chattingbys.databinding.ActivityChatDetailBinding;
 import com.squareup.picasso.Picasso;
 
@@ -43,6 +45,8 @@ public class ChatDetailActivity extends AppCompatActivity {
         String recievedId = getIntent().getStringExtra("userId");
         String userName = getIntent().getStringExtra("userName");
         String profileePic = getIntent().getStringExtra("profileePic");
+
+
 
         binding.userName.setText(userName);
         Picasso.get().load(profileePic).placeholder(R.drawable.avatar).into(binding.profileImage);
@@ -74,11 +78,13 @@ public class ChatDetailActivity extends AppCompatActivity {
                         messages.clear();
                         for (DataSnapshot snapshot1 : snapshot.getChildren())
                         {
+
                             Message model = snapshot1.getValue(Message.class);
                             model.setMessageId(snapshot1.getKey());
                             messages.add(model);
 
                         }
+                        chatAdapter.notifyDataSetChanged();
                     }
 
                     @Override
@@ -92,6 +98,7 @@ public class ChatDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String message =  binding.edtMessage.getText().toString();
+
                 final Message model = new Message(senderId , message);
                 model.setTimestamp(new Date().getTime());
                 binding.edtMessage.setText("");

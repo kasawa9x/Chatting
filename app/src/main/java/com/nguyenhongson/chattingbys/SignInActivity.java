@@ -42,8 +42,8 @@ public class SignInActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         progressDialog = new ProgressDialog(SignInActivity.this);
-        progressDialog.setTitle("Login");
-        progressDialog.setMessage(" Login to your account");
+        progressDialog.setTitle("Đăng nhập");
+        progressDialog.setMessage(" Đăng nhập tới tài khoản");
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -57,11 +57,11 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (binding.edtEmail.getText().toString().isEmpty()){
-                    binding.edtEmail.setError("Enter your E-mail");
+                    binding.edtEmail.setError("Tài khoản không được để trống");
                     return;
                 }
                 if (binding.edtPass.getText().toString().isEmpty()){
-                    binding.edtPass.setError("Enter your PassWord");
+                    binding.edtPass.setError("Mật khảu không được để trống");
                     return;
                 }
 
@@ -93,7 +93,13 @@ public class SignInActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        binding.btnGoogle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
 
+            }
+        });
         if (auth.getCurrentUser()!= null){
             Intent intent = new Intent(SignInActivity.this,MainActivity.class);
             startActivity(intent);
@@ -143,7 +149,7 @@ public class SignInActivity extends AppCompatActivity {
 
                             Intent intent = new Intent(SignInActivity.this,MainActivity.class);
                             startActivity(intent);
-                            Toast.makeText(SignInActivity.this,"Sign in with Google",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignInActivity.this,"Đăng nhập với Google",Toast.LENGTH_SHORT).show();
 //                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

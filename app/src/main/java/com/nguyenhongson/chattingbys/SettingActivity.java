@@ -20,6 +20,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.nguyenhongson.chattingbys.Model.Users;
+
 import com.nguyenhongson.chattingbys.databinding.ActivitySettingBinding;
 import com.squareup.picasso.Picasso;
 
@@ -54,15 +55,20 @@ public class SettingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String status = binding.edtStatus.getText().toString();
                 String username = binding.edtUserName.getText().toString();
+                String mail = binding.edtMail.getText().toString();
+                String pass = binding.edtPass.getText().toString();
+
 
                 HashMap<String , Object> obj = new HashMap<>();
                 obj.put("userName",username);
                 obj.put("status",status);
+                obj.put("mail",mail);
+                obj.put("password",pass);
 
                 database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                         .updateChildren(obj);
                 Toast.makeText(SettingActivity.this,
-                        "Save Success",Toast.LENGTH_SHORT).show();
+                        "Lưu thành công",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -77,6 +83,9 @@ public class SettingActivity extends AppCompatActivity {
                                 .into(binding.imProfile);
                         binding.edtStatus.setText(users.getStatus());
                         binding.edtUserName.setText(users.getUserName());
+                        binding.edtPass.setText(users.getPassword());
+                        binding.edtMail.setText(users.getMail());
+
                     }
 
                     @Override
@@ -117,7 +126,7 @@ public class SettingActivity extends AppCompatActivity {
                                     .child("profileepic")
                                     .setValue(uri.toString());
                          Toast.makeText(SettingActivity.this,
-                                 "Profile Pic Updated",Toast.LENGTH_SHORT).show();
+                                 "Cập nhật ảnh đại diện thành công",Toast.LENGTH_SHORT).show();
                         }
                     });
                 }

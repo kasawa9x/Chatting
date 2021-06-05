@@ -27,10 +27,13 @@
 
         <EditText
             android:id="@+id/edt_UserName"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grayBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@drawable/bg_messenger"
             android:ems="10"
+
             android:hint="Tên người dùng"
             android:inputType="textPersonName"
             android:padding="9dp"
@@ -41,11 +44,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grayBackground"
             android:layout_marginBottom="10dp"
-            android:background="@color/white"
+            android:background="@drawable/bg_messenger"
             android:ems="10"
             android:hint="Tên đăng nhập"
             android:inputType="textEmailAddress"
+
             android:padding="9dp" />
 
         <EditText
@@ -53,8 +59,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@color/white"
+            android:background="@drawable/bg_messenger"
             android:ems="10"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grayBackground"
             android:hint="Mật khẩu"
             android:inputType="textPassword"
             android:padding="9dp" />
@@ -79,6 +87,7 @@
             android:padding="15dp"
             android:backgroundTint="@android:color/holo_blue_dark"
             android:text="Đăng ký"
+            android:textColor="@color/white"
             app:cornerRadius="4dp" />
 
 

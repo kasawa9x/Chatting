@@ -32,6 +32,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         this.context = context;
     }
 
+    public UserAdapter(ArrayList<Users> list) {
+        this.list = list;
+    }
+
     @NonNull
 
     @Override

@@ -44,7 +44,7 @@ public class GroupChatActivity extends AppCompatActivity {
         final ChatAdapter adapter = new ChatAdapter(messages, this);
 
         final String senderId = FirebaseAuth.getInstance().getUid();
-        binding.userName.setText("Friends Group");
+        binding.userName.setText("Phòng chat chung");
 
         binding.rvChatdetail.setAdapter(adapter);
 
@@ -60,6 +60,7 @@ public class GroupChatActivity extends AppCompatActivity {
                             Message model = dataSnapshot.getValue(Message.class);
                             messages.add(model);
                         }
+                        adapter.notifyDataSetChanged();
                     }
 
                     @Override
@@ -72,7 +73,9 @@ public class GroupChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final  String message = binding.edtMessage.getText().toString();
-                final Message model = new Message(senderId,message);
+
+                final Message model = new Message(senderId , message);
+
                 model.setTimestamp(new Date().getTime());
                 binding.edtMessage.setText("");
                 database.getReference().child("Group Chat")

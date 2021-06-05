@@ -28,14 +28,14 @@ public class SignUpActivity extends AppCompatActivity {
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        getSupportActionBar().hide();
+        getSupportActionBar().hide();
 
 //        getSupportActionBar().hide();
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         progressDialog = new ProgressDialog(SignUpActivity.this);
-        progressDialog.setTitle("Creating Account");
-        progressDialog.setMessage(" We are creating your account");
+        progressDialog.setTitle("Tạo tài khoản");
+        progressDialog.setMessage(" Hệ thống đang tạo tài khảon ");
 
         binding.btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     String id  = task.getResult().getUser().getUid();
                                     database.getReference().child("Users").child(id).setValue(users);
                                     Toast.makeText(SignUpActivity.this,
-                                            "User Created Sucessfully",
+                                            "Tạo tài khoản thành công",
                                             Toast.LENGTH_SHORT).show();
                                 }else {
                                     Toast.makeText(SignUpActivity.this,

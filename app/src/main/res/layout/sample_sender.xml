@@ -3,25 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/avatar"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="2dp"
+        android:padding="5dp"
+        android:layout_alignParentRight="true"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-
-        android:layout_alignParentRight="true"
         android:layout_marginStart="5dp"
+
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/bg_sender"
 
+        android:layout_marginRight="40dp"
+        android:layout_toLeftOf="@id/profile_image"
+        android:background="@drawable/bg_sender"
         android:maxWidth="310dp"
+
         android:maxHeight="400dp"
-        android:minHeight="30dp">
+        android:minHeight="30dp"
+        android:padding="5dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -34,31 +46,22 @@
             android:id="@+id/sendText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ggggggggggggggggggggg"
-            android:textColor="@color/black"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="10dp"
             android:maxWidth="270dp"
             android:minWidth="50dp"
+            android:text="gggggggggggggggggg"
+            android:textColor="@color/black"
 
-            app:layout_constraintBottom_toTopOf="@+id/sendTime"
+
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintHorizontal_bias="0.065"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/sendTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-
-            android:textColor="@color/black"
-
-            android:text="12:00 a:m"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
-            app:layout_constraintHorizontal_bias="0.936"
-            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

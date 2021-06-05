@@ -22,7 +22,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
     ArrayList<Message> messages;
     Context context;
     String recId;
-    String imageProl;
+
 
     int SENDER_VIEW_TYPE = 1;
     int RECEIVER_VIEW_TYPE = 2;
@@ -120,7 +120,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
         public RecieverViewHolder(@NonNull  View itemView) {
             super(itemView);
             receiverMsg = itemView.findViewById(R.id.receiverText);
-            receiverTime = itemView.findViewById(R.id.receiverTime);
+//            receiverTime = itemView.findViewById(R.id.receiverTime);
 
         }
     }
@@ -129,7 +129,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
         public SenderViewHolder(@NonNull View itemView) {
             super(itemView);
             senderMsg = itemView.findViewById(R.id.sendText);
-            senderTime = itemView.findViewById(R.id.receiverTime);
+//            senderTime = itemView.findViewById(R.id.receiverTime);
 
 
         }

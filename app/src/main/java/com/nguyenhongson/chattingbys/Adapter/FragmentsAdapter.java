@@ -8,7 +8,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 
 import com.nguyenhongson.chattingbys.Fragments.ChatFragment;
-import com.nguyenhongson.chattingbys.Fragments.GroupChatFragment;
+import com.nguyenhongson.chattingbys.Fragments.ProfileFragment;
+import com.nguyenhongson.chattingbys.ProfileActivity;
+
 
 public class FragmentsAdapter extends FragmentPagerAdapter {
     public FragmentsAdapter(@NonNull FragmentManager fm) {
@@ -25,8 +27,7 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0 : return new ChatFragment();
-            case 1 : return new GroupChatFragment();
-
+            case 1 : return new ProfileActivity();
             default: return  new ChatFragment();
 
 
@@ -36,7 +37,7 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Nullable
@@ -45,13 +46,11 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         String title = null ;
         if (position == 0){
-            title = "CHATS";
+            title = "Trò chuyện";
         }
+
         if (position == 1){
-            title = "Group chat";
-        }
-        if (position == 2){
-            title = "Profile";
+            title = "Hồ sơ cá nhân";
         }
         return title;
     }

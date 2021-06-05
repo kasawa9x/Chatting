@@ -11,6 +11,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/liner_mess"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -18,12 +19,14 @@
 
         <EditText
             android:id="@+id/edt_Message"
-            android:layout_width="321dp"
-            android:layout_height="60dp"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
             android:layout_margin="5dp"
             android:background="@drawable/bg_messenger"
             android:ems="10"
+            android:textColorHint="@color/grayBackground"
             android:inputType="textPersonName"
+            android:textColor="@color/black"
             android:padding="10dp"
             android:hint="Nhập tin nhắn"/>
 
@@ -33,14 +36,16 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_weight="1"
+
             android:src="@drawable/ic_send" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvChatdetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/liner_mess">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -50,6 +55,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
+        android:backgroundTint="#03A9F4"
         android:theme="?attr/actionBarTheme">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -88,6 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nguyễn Hồng Sơn"
+                android:textSize="20dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
