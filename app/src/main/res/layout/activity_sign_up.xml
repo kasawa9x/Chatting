@@ -50,7 +50,7 @@
             android:background="@drawable/bg_messenger"
             android:ems="10"
             android:hint="Tên đăng nhập"
-            android:inputType="textEmailAddress"
+
 
             android:padding="9dp" />
 

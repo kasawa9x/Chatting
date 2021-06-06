@@ -18,6 +18,7 @@
         android:layout_alignParentRight="true"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ct_sender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
@@ -63,6 +64,21 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
 
+        android:layout_toLeftOf="@id/ct_sender">
+        <TextView
+            android:id="@+id/sendTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:background="@android:color/background_light"
+            android:text="12:00 a:m"
+            android:textColor="@color/black" />
+    </LinearLayout>
 
 </RelativeLayout>

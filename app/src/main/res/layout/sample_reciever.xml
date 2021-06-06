@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
+    android:background="@color/white"
     android:orientation="horizontal"
 
     >
@@ -23,19 +23,18 @@
         app:civ_border_width="2dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-    android:padding="5dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="5dp"
-    android:layout_marginLeft="3dp"
-    android:layout_marginEnd="7dp"
-    android:layout_marginRight="7dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="3dp"
         android:layout_marginTop="5dp"
-    android:maxWidth="310dp"
-    android:maxHeight="400dp"
-    android:minHeight="30dp"
-    android:background="@drawable/bg_reciver"
-        >
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/bg_reciver"
+        android:maxWidth="310dp"
+        android:maxHeight="400dp"
+        android:minHeight="30dp"
+        android:padding="5dp">
 
 
         <TextView
@@ -64,5 +63,24 @@
             app:layout_constraintGuide_begin="3dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/receiverTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="12:00 a:m"
+            android:textColor="@color/black" />
     </LinearLayout>
+
+
+</LinearLayout>

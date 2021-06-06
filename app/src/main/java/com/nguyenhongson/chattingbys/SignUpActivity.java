@@ -17,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.nguyenhongson.chattingbys.Model.Users;
 import com.nguyenhongson.chattingbys.databinding.ActivitySignUpBinding;
 
+
 public class SignUpActivity extends AppCompatActivity {
     ActivitySignUpBinding binding;
     private FirebaseAuth auth;

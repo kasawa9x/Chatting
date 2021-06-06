@@ -36,7 +36,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:src="@drawable/ic_send" />
+            android:src="@drawable/send" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
