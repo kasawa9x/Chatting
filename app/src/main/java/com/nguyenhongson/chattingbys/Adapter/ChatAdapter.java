@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.nguyenhongson.chattingbys.Model.Message;
+import com.nguyenhongson.chattingbys.Model.Users;
 import com.nguyenhongson.chattingbys.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -76,13 +78,16 @@ public class ChatAdapter extends RecyclerView.Adapter{
     public void onBindViewHolder(@NonNull  RecyclerView.ViewHolder holder, int position) {
         Message message = messages.get(position);
 
+
+
+
         holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 new AlertDialog.Builder(context)
-                        .setTitle("Delete")
-                        .setMessage("Are you sure to delete this message")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        .setTitle("Xoá tin nhắn")
+                        .setMessage("Tin nhắn này chỉ xoá ở phía bạn")
+                        .setPositiveButton("Chấp nhận", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -91,7 +96,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
                                         .child(message.getMessageId())
                                         .setValue(null);
                             }
-                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        }).setNegativeButton("Không", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
@@ -109,6 +114,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
             ((RecieverViewHolder)holder).receiverMsg.setText(message.getMessage());
         }
 
+
     }
     @Override
     public int getItemCount() {
@@ -120,7 +126,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
         public RecieverViewHolder(@NonNull  View itemView) {
             super(itemView);
             receiverMsg = itemView.findViewById(R.id.receiverText);
-//            receiverTime = itemView.findViewById(R.id.receiverTime);
+            receiverTime = itemView.findViewById(R.id.receiverTime);
 
         }
     }
@@ -129,7 +135,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
         public SenderViewHolder(@NonNull View itemView) {
             super(itemView);
             senderMsg = itemView.findViewById(R.id.sendText);
-//            senderTime = itemView.findViewById(R.id.receiverTime);
+            senderTime = itemView.findViewById(R.id.senderTime);
 
 
         }

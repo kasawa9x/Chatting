@@ -1,10 +1,8 @@
 package com.nguyenhongson.chattingbys.Model;
 
-import java.sql.Date;
-
 public class Message {
     String uId, message, messageId, imPro;
-    Date date;
+
     Long timestamp;
 
     public Message(String uId, String message, Long timestamp, String imPro) {
@@ -64,7 +62,7 @@ public class Message {
         return timestamp;
     }
 
-    public void setTimestamp(Long timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 }

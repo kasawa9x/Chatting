@@ -47,7 +47,7 @@ public class ChatDetailActivity extends AppCompatActivity {
         String profileePic = getIntent().getStringExtra("profileePic");
 
 
-
+       
         binding.userName.setText(userName);
         Picasso.get().load(profileePic).placeholder(R.drawable.avatar).into(binding.profileImage);
 
@@ -76,11 +76,13 @@ public class ChatDetailActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull  DataSnapshot snapshot) {
                         messages.clear();
+
                         for (DataSnapshot snapshot1 : snapshot.getChildren())
                         {
 
                             Message model = snapshot1.getValue(Message.class);
                             model.setMessageId(snapshot1.getKey());
+
                             messages.add(model);
 
                         }
